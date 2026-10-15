@@ -1,8 +1,11 @@
 terraform {
-  backend "s3" {
-    bucket = "branson-bucket"
-    key    = "terraform.tfstate"
-    region = "us-east-2"
+  cloud {
+    organization = "faithful_mallards_apprentice_wave"
+
+    workspaces {
+      project = "Learn Terraform"
+      name = "learn-terraform-aws-branson"
+    }
   }
 
   required_providers {
